@@ -5,19 +5,25 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C91B4C94-E758-4CA7-9266-1AA020A77C97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleLancamento.Domain", "ControleLancamento.Domain\ControleLancamento.Domain.csproj", "{CDDB6335-A523-4EA3-B27E-06CB39D050CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleLancamento.Domain", "ControleLancamento.Domain\ControleLancamento.Domain.csproj", "{CDDB6335-A523-4EA3-B27E-06CB39D050CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleLancamento.Application", "ControleLancamento.Application\ControleLancamento.Application.csproj", "{CBE3D940-C0B3-4E20-A102-85F509F3BC7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleLancamento.Application", "ControleLancamento.Application\ControleLancamento.Application.csproj", "{CBE3D940-C0B3-4E20-A102-85F509F3BC7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleLancamento.Infra.Data", "ControleLancamento.Infra.Data\ControleLancamento.Infra.Data.csproj", "{5B98FF72-E94A-4A58-88D4-43C3AD849A2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleLancamento.Infra.Data", "ControleLancamento.Infra.Data\ControleLancamento.Infra.Data.csproj", "{5B98FF72-E94A-4A58-88D4-43C3AD849A2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleLancamento.Infra.IoC", "ControleLancamento.Infra.IoC\ControleLancamento.Infra.IoC.csproj", "{32193497-3018-45A1-A812-AFCE88D24CCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleLancamento.Infra.IoC", "ControleLancamento.Infra.IoC\ControleLancamento.Infra.IoC.csproj", "{32193497-3018-45A1-A812-AFCE88D24CCF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{445732BC-702C-466A-9394-2D813D3F7A7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleLancamento.Domain.Tests", "ControleLancamento.Domain.Tests\ControleLancamento.Domain.Tests.csproj", "{F2A0784F-4667-4352-B417-3895744FC499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleLancamento.Domain.Tests", "ControleLancamento.Domain.Tests\ControleLancamento.Domain.Tests.csproj", "{F2A0784F-4667-4352-B417-3895744FC499}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleLancamento.API", "ControleLancamento.API\ControleLancamento.API.csproj", "{32785AC6-8D01-4DB9-94BD-CBCF9B573C15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleLancamento.API", "ControleLancamento.API\ControleLancamento.API.csproj", "{32785AC6-8D01-4DB9-94BD-CBCF9B573C15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{35CAFB18-CCAD-4A2C-A9FF-08CAA90C3F42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{281F66A5-6599-4AE9-B5AC-29B1E09EE528}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apresentation", "Apresentation", "{3CF3EFC4-626E-4CFB-9F4D-A5EEDD5F0F7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,12 +60,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CDDB6335-A523-4EA3-B27E-06CB39D050CA} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
-		{CBE3D940-C0B3-4E20-A102-85F509F3BC7E} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
-		{5B98FF72-E94A-4A58-88D4-43C3AD849A2C} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
-		{32193497-3018-45A1-A812-AFCE88D24CCF} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
+		{CDDB6335-A523-4EA3-B27E-06CB39D050CA} = {35CAFB18-CCAD-4A2C-A9FF-08CAA90C3F42}
+		{CBE3D940-C0B3-4E20-A102-85F509F3BC7E} = {35CAFB18-CCAD-4A2C-A9FF-08CAA90C3F42}
+		{5B98FF72-E94A-4A58-88D4-43C3AD849A2C} = {281F66A5-6599-4AE9-B5AC-29B1E09EE528}
+		{32193497-3018-45A1-A812-AFCE88D24CCF} = {281F66A5-6599-4AE9-B5AC-29B1E09EE528}
 		{F2A0784F-4667-4352-B417-3895744FC499} = {445732BC-702C-466A-9394-2D813D3F7A7F}
-		{32785AC6-8D01-4DB9-94BD-CBCF9B573C15} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
+		{32785AC6-8D01-4DB9-94BD-CBCF9B573C15} = {3CF3EFC4-626E-4CFB-9F4D-A5EEDD5F0F7E}
+		{35CAFB18-CCAD-4A2C-A9FF-08CAA90C3F42} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
+		{281F66A5-6599-4AE9-B5AC-29B1E09EE528} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
+		{3CF3EFC4-626E-4CFB-9F4D-A5EEDD5F0F7E} = {C91B4C94-E758-4CA7-9266-1AA020A77C97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B17A907B-B78C-406A-9C71-2A4ABFEF653D}

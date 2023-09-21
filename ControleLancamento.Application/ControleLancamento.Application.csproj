@@ -15,7 +15,6 @@
     <Folder Include="Services\" />
     <Folder Include="Shared\Exceptions\" />
     <Folder Include="Shared\Behavior\" />
-    <Folder Include="UseCases\Category\" />
   </ItemGroup>
 
   <ItemGroup>

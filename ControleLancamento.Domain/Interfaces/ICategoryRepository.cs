@@ -4,7 +4,7 @@ namespace ControleLancamento.Domain.Interfaces
 {
     public interface ICategoryRepository
     {
-        Task<IEnumerable<Category>> GetCategorysAsync();
+        Task<IEnumerable<Category>> GetCategoriesAsync();
         Task<Category> GetByIdAsync(int? id);
         Task<Category> CreateAsync(Category categoria);
         Task<Category> UpdateAsync(Category categoria);

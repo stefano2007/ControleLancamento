@@ -7,7 +7,6 @@ public sealed class Category : Entity
     public string Name { get; private set; }
     public string Color { get; private set; }
     public string Icon { get; private set; }
-    public DateTime DateCreate { get; private set; }
 
     public Category(string name, string color, string icon, DateTime dateCreate)
     {

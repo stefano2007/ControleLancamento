@@ -3,7 +3,7 @@
 public abstract class Entity
 {
     public int Id { get; protected set; }
-    public DateTime DateCreate { get; private set; }
+    public DateTime DateCreate { get; protected set; }
     public bool Active { get; private set; }
     public void SetInactive()
     {

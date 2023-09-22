@@ -7,26 +7,27 @@ public sealed class UserAccount : Entity
     public Account Account { get; set; }
     public int UserId { get; private set; }
     public User user { get; set; }
+    public bool IsUserMain { get; set; }
 
-    public UserAccount(int accountId, int userId)
+    public UserAccount(int accountId, int userId, bool isUserMain)
     {
-        ValidateDomain(accountId, userId);
+        ValidateDomain(accountId, userId, isUserMain);
     }
-    public UserAccount(int id, int accountId, int userId)
+    public UserAccount(int id, int accountId, int userId, bool isUserMain)
     {
         DomainExceptionValidation.When(id < 0, "Invalid Id value.");
         Id = id;
-        ValidateDomain(accountId, userId);
+        ValidateDomain(accountId, userId, isUserMain);
     }
-    public void Update(int accountId, int userId)
+    public void Update(int accountId, int userId, bool isUserMain)
     {
-        ValidateDomain(accountId, userId);
+        ValidateDomain(accountId, userId, isUserMain);
     }
     public void Delete()
     {
         SetInactive();
     }
-    private void ValidateDomain(int accountId, int userId)
+    private void ValidateDomain(int accountId, int userId, bool isUserMain)
     {
         DomainExceptionValidation.When(accountId <= 0,
              "Campo CategoryId é requerido");
@@ -36,6 +37,7 @@ public sealed class UserAccount : Entity
 
         AccountId = accountId;
         UserId = userId;
+        IsUserMain = isUserMain;
     }
 }
 

@@ -8,10 +8,20 @@ namespace ControleLancamento.Infra.Data.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasKey(t => t.Id);
-            builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
-            builder.Property(p => p.Color).HasMaxLength(7);
-            builder.Property(p => p.Icon).HasMaxLength(20);
+            builder.ToTable("tbCategory");
+
+            builder.RegistryFieldsEntity();
+
+            builder.Property(p => p.Name)
+                .HasColumnName("nmCategory")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.Property(p => p.Color)
+                .HasMaxLength(7);
+
+            builder.Property(p => p.Icon)
+                .HasMaxLength(20);
         }
     }
 }

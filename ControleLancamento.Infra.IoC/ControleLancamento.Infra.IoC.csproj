@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ControleLancamento.Application\ControleLancamento.Application.csproj" />
+    <ProjectReference Include="..\ControleLancamento.Domain\ControleLancamento.Domain.csproj" />
     <ProjectReference Include="..\ControleLancamento.Infra.Data\ControleLancamento.Infra.Data.csproj" />
   </ItemGroup>
 

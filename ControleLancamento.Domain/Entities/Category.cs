@@ -19,9 +19,9 @@ public sealed class Category : Entity
 
         ValidateDomain(name, color, icon, dateCreate);
     }
-    public void Update(string name, string color, string icon, DateTime dateCreate)
+    public void Update(string name, string color, string icon)
     {
-        ValidateDomain(name, color, icon, dateCreate);
+        ValidateDomain(name, color, icon, DateCreate);
     }
     public void Delete()
     {

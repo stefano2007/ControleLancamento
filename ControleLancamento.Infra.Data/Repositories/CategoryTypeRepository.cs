@@ -22,17 +22,24 @@ namespace ControleLancamento.Infra.Data.Repositories
 
         public async Task<CategoryType> GetByIdAsync(int? id)
         {
-            return await _categoryTypeContext.CategoryTypes.FindAsync(id);
+            return await _categoryTypeContext
+                    .CategoryTypes
+                    .FirstOrDefaultAsync(c => c.Id == id && c.Active);
         }
 
         public async Task<IEnumerable<CategoryType>> GetCategoryTypesAsync()
         {
-            return await _categoryTypeContext.CategoryTypes.ToListAsync();
+            return await _categoryTypeContext
+                .CategoryTypes
+                .Where(c => c.Active)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<CategoryType> RemoveAsync(CategoryType categoryType)
         {
-            _categoryTypeContext.Remove(categoryType);
+            //_categoryTypeContext.Remove(categoryType);
+            categoryType.SetInactive();
             await _categoryTypeContext.SaveChangesAsync();
             return categoryType;
         }

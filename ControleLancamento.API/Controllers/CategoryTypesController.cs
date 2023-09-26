@@ -45,19 +45,19 @@ public class CategoryTypesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post([FromBody] CategoryTypeDTO categoryDto)
+    public async Task<ActionResult> Post([FromBody] CategoryTypeCreateDTO categoryDto)
     {
         if (categoryDto == null)
             return BadRequest("Invalid Data");
 
-        await _categoryTypeService.CreateAsync(categoryDto);
+        var result = await _categoryTypeService.CreateAsync(categoryDto);
 
-        return new CreatedAtRouteResult("GetCategoryType", new { id = categoryDto.Id },
-            categoryDto);
+        return new CreatedAtRouteResult("GetCategoryType", new { id = result.Id },
+            result);
     }
 
     [HttpPut]
-    public async Task<ActionResult> Put(int id, [FromBody] CategoryTypeDTO categoryTypeDto)
+    public async Task<ActionResult> Put(int id, [FromBody] CategoryTypeUpdateDTO categoryTypeDto)
     {
         if (id != categoryTypeDto.Id)
             return BadRequest();

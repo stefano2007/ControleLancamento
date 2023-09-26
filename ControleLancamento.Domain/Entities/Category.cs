@@ -8,26 +8,26 @@ public sealed class Category : Entity
     public string? Color { get; private set; }
     public string? Icon { get; private set; }
 
-    public Category(string name, string color, string icon, DateTime dateCreate)
+    public Category(string name, string color, string icon)
     {
-        ValidateDomain(name, color, icon, dateCreate);
+        ValidateDomain(name, color, icon);
     }
-    public Category(int id, string name, string color, string icon, DateTime dateCreate)
+    public Category(int id, string name, string color, string icon)
     {
         DomainExceptionValidation.When(id < 0, "Invalid Id value.");
         Id = id;
 
-        ValidateDomain(name, color, icon, dateCreate);
+        ValidateDomain(name, color, icon);
     }
     public void Update(string name, string color, string icon)
     {
-        ValidateDomain(name, color, icon, DateCreate);
+        ValidateDomain(name, color, icon);
     }
     public void Delete()
     {
         SetInactive();
     }
-    private void ValidateDomain(string name, string color, string icon, DateTime dateCreate)
+    private void ValidateDomain(string name, string color, string icon)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
             "Invalid name.Name is required");
@@ -44,6 +44,5 @@ public sealed class Category : Entity
         Name = name;
         Color = color;
         Icon = icon;
-        DateCreate = dateCreate;
     }
 }

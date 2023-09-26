@@ -3,6 +3,7 @@ using ControleLancamento.Application.DTOs;
 using ControleLancamento.Application.Interfaces;
 using ControleLancamento.Application.UseCases.CategoryTypes.Commands;
 using ControleLancamento.Application.UseCases.CategoryTypes.Queries;
+using ControleLancamento.Domain.Entities;
 using MediatR;
 
 namespace ControleLancamento.Application.Services
@@ -18,43 +19,47 @@ namespace ControleLancamento.Application.Services
         }
         public async Task<IEnumerable<CategoryTypeDTO>> GetCategoryTypesAsync()
         {
-            var productsQuery = new GetCategoryTypesQuery();
+            var categoryTypesQuery = new GetCategoryTypesQuery();
 
-            if (productsQuery == null)
+            if (categoryTypesQuery == null)
                 throw new Exception($"Entity could not be loaded.");
 
-            var result = await _mediator.Send(productsQuery);
+            var result = await _mediator.Send(categoryTypesQuery);
 
             return _mapper.Map<IEnumerable<CategoryTypeDTO>>(result);
         }
         public async Task<CategoryTypeDTO> GetByIdAsync(int? id)
         {
-            var productByIdQuery = new GetCategoryTypeByIdQuery(id.Value);
+            var categoryTypeByIdQuery = new GetCategoryTypeByIdQuery(id.Value);
 
-            if (productByIdQuery == null)
+            if (categoryTypeByIdQuery == null)
                 throw new Exception($"Entity could not be loaded.");
 
-            var result = await _mediator.Send(productByIdQuery);
+            var result = await _mediator.Send(categoryTypeByIdQuery);
 
             return _mapper.Map<CategoryTypeDTO>(result);
         }
-        public async Task CreateAsync(CategoryTypeDTO productDto)
+        public async Task<CategoryTypeDTO> CreateAsync(CategoryTypeCreateDTO categoryTypeDto)
         {
-            var productCreateCommand = _mapper.Map<CategoryTypeCreateCommand>(productDto);
-            await _mediator.Send(productCreateCommand);
+            var categoryTypeCreateCommand = _mapper.Map<CategoryTypeCreateCommand>(categoryTypeDto);
+            var result = await _mediator.Send(categoryTypeCreateCommand);
+
+            return _mapper.Map<CategoryTypeDTO>(result);
         }
-        public async Task UpdateAsync(CategoryTypeDTO productDto)
+        public async Task<CategoryTypeDTO> UpdateAsync(CategoryTypeUpdateDTO categoryTypeDto)
         {
-            var productUpdateCommand = _mapper.Map<CategoryTypeUpdateCommand>(productDto);
-            await _mediator.Send(productUpdateCommand);
+            var categoryTypeUpdateCommand = _mapper.Map<CategoryTypeUpdateCommand>(categoryTypeDto);
+            var result = await _mediator.Send(categoryTypeUpdateCommand);
+
+            return _mapper.Map<CategoryTypeDTO>(result);
         }
         public async Task RemoveAsync(int? id)
         {
-            var productRemoveCommand = new CategoryTypeRemoveCommand(id.Value);
-            if (productRemoveCommand == null)
+            var categoryTypeRemoveCommand = new CategoryTypeRemoveCommand(id.Value);
+            if (categoryTypeRemoveCommand == null)
                 throw new Exception($"Entity could not be loaded.");
 
-            await _mediator.Send(productRemoveCommand);
+            await _mediator.Send(categoryTypeRemoveCommand);
         }
     }
 }

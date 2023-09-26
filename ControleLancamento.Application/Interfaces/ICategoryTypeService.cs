@@ -6,8 +6,8 @@ namespace ControleLancamento.Application.Interfaces
     {
         Task<IEnumerable<CategoryTypeDTO>> GetCategoryTypesAsync();
         Task<CategoryTypeDTO> GetByIdAsync(int? id);
-        Task CreateAsync(CategoryTypeDTO categoryDto);
-        Task UpdateAsync(CategoryTypeDTO categoryDto);
+        Task<CategoryTypeDTO> CreateAsync(CategoryTypeCreateDTO categoryDto);
+        Task<CategoryTypeDTO> UpdateAsync(CategoryTypeUpdateDTO categoryDto);
         Task RemoveAsync(int? id);
     }
 }

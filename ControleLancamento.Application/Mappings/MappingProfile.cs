@@ -12,8 +12,12 @@ public class MappingProfile : Profile
     {
         CreateMap<Category, CategoryDTO>().ReverseMap();
         CreateMap<CategoryDTO, CategoryCommand>();
+        CreateMap<CategoryCreateDTO, CategoryCreateCommand>();
+        CreateMap<CategoryUpdateDTO, CategoryUpdateCommand>();
 
         CreateMap<CategoryType, CategoryTypeDTO>().ReverseMap();
         CreateMap<CategoryTypeDTO, CategoryTypeCommand>();
+        CreateMap<CategoryTypeCreateDTO, CategoryTypeCreateCommand>();
+        CreateMap<CategoryTypeUpdateDTO, CategoryTypeUpdateCommand>();
     }
 }

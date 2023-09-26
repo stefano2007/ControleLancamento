@@ -5,26 +5,26 @@ public sealed class CategoryType : Entity
 {
     public string Name { get; private set; }
     
-    public CategoryType(string name, DateTime dateCreate)
+    public CategoryType(string name)
     {
-        ValidateDomain(name, dateCreate);
+        ValidateDomain(name);
     }
 
-    public CategoryType(int id, string name, DateTime dateCreate)
+    public CategoryType(int id, string name)
     {
         DomainExceptionValidation.When(id < 0, "Invalid Id value.");
         Id = id;
-        ValidateDomain(name, dateCreate);
+        ValidateDomain(name);
     }
     public void Update(string name)
     {
-        ValidateDomain(name, DateCreate);
+        ValidateDomain(name);
     }
     public void Delete()
     {
         SetInactive();
     }
-    private void ValidateDomain(string name, DateTime dateCreate)
+    private void ValidateDomain(string name)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
             "Campo name é requerido");
@@ -33,7 +33,6 @@ public sealed class CategoryType : Entity
            "name inválido mínimo de 3 caracteres");
 
         Name = name;
-        DateCreate = dateCreate;
     }
 }
 

@@ -45,19 +45,19 @@ public class CategoriesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post([FromBody] CategoryDTO categoryDto)
+    public async Task<ActionResult> Post([FromBody] CategoryCreateDTO categoryDto)
     {
         if (categoryDto == null)
             return BadRequest("Invalid Data");
 
-        await _categoryService.CreateAsync(categoryDto);
+        var result = await _categoryService.CreateAsync(categoryDto);
 
-        return new CreatedAtRouteResult("GetCategory", new { id = categoryDto.Id },
-            categoryDto);
+        return new CreatedAtRouteResult("GetCategory", new { id = result.Id },
+            result);
     }
 
     [HttpPut]
-    public async Task<ActionResult> Put(int id, [FromBody] CategoryDTO categoryDto)
+    public async Task<ActionResult> Put(int id, [FromBody] CategoryUpdateDTO categoryDto)
     {
         if (id != categoryDto.Id)
             return BadRequest();
@@ -65,9 +65,9 @@ public class CategoriesController : ControllerBase
         if (categoryDto == null)
             return BadRequest();
 
-        await _categoryService.UpdateAsync(categoryDto);
+        var result = await _categoryService.UpdateAsync(categoryDto);
 
-        return Ok(categoryDto);
+        return Ok(result);
     }
 
     /// <summary>

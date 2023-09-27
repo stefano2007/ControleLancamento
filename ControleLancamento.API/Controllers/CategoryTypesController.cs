@@ -1,6 +1,5 @@
 ﻿using ControleLancamento.Application.DTOs;
 using ControleLancamento.Application.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleLancamento.API.Controllers;
@@ -19,12 +18,12 @@ public class CategoryTypesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CategoryTypeDTO>>> Get()
     {
-        var categories = await _categoryTypeService.GetCategoryTypesAsync();
-        if (categories == null)
+        var categoryTypess = await _categoryTypeService.GetCategoryTypesAsync();
+        if (categoryTypess == null)
         {
             return NotFound("CategoryTypes not found");
         }
-        return Ok(categories);
+        return Ok(categoryTypess);
     }
 
     /// <summary>

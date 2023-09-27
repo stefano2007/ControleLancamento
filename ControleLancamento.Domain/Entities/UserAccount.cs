@@ -3,9 +3,9 @@
 namespace ControleLancamento.Domain.Entities;
 public sealed class UserAccount : Entity
 {
-    public int AccountId { get; private set; }
+    public int AccountId { get; set; }
     public Account Account { get; set; }
-    public int UserId { get; private set; }
+    public int UserId { get; set; }
     public User user { get; set; }
     public bool IsUserMain { get; set; }
 

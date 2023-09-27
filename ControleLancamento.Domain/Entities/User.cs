@@ -21,6 +21,10 @@ public sealed class User : Entity
         Id = id;
         ValidateDomain(name, email, password, occupation, cellPhone);
     }
+    public void Update(string name, string email, string password, string occupation, string cellPhone)
+    {
+        ValidateDomain(name, email, password, occupation, cellPhone);
+    }
     public void Delete()
     {
         SetInactive();
@@ -45,10 +49,10 @@ public sealed class User : Entity
         DomainExceptionValidation.When(email.Length > 120,
            "Invalid email, too large, maximum 120 characters");
 
-        DomainExceptionValidation.When(string.IsNullOrEmpty(Occupation) && Occupation.Length > 60,
+        DomainExceptionValidation.When(!string.IsNullOrEmpty(Occupation) && Occupation.Length > 60,
             "Invalid image name, too large, maximum 60 characters");
 
-        DomainExceptionValidation.When(string.IsNullOrEmpty(CellPhone) && CellPhone.Length > 11,
+        DomainExceptionValidation.When(!string.IsNullOrEmpty(CellPhone) && CellPhone.Length > 11,
             "Invalid image name, too large, maximum 11 characters");
 
         Name = name;

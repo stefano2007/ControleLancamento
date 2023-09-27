@@ -26,10 +26,12 @@ public static class DependencyInjection
         //Repositories
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<ICategoryTypeRepository, CategoryTypeRepository>();
+        services.AddScoped<IAccountTypeRepository, AccountTypeRepository>();
 
         //Services
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<ICategoryTypeService, CategoryTypeService>();
+        services.AddScoped<IAccountTypeService, AccountTypeService>();
 
 
         services.AddAutoMapper(typeof(MappingProfile));

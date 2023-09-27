@@ -30,16 +30,19 @@ public sealed class Category : Entity
     private void ValidateDomain(string name, string color, string icon)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
-            "Invalid name.Name is required");
+            "Invalid name is required");
 
         DomainExceptionValidation.When(name.Length < 3,
            "Invalid name, too short, minimum 3 characters");
 
+        DomainExceptionValidation.When(name.Length > 100,
+           "Invalid name, too large, maximum 100 characters");
+
         DomainExceptionValidation.When(!string.IsNullOrEmpty(color) && color.Length > 7,
-           "Invalid color, too large, max 7 characters");
+           "Invalid color, too large, maximum 7 characters");
 
         DomainExceptionValidation.When(!string.IsNullOrEmpty(icon) && icon.Length > 20,
-           "Invalid icon, too large, max 20 characters");
+           "Invalid icon, too large, maximum 20 characters");
 
         Name = name;
         Color = color;

@@ -59,7 +59,7 @@ Create Table tbUserAccount(
   dtCreate  Datetime  not null default getdate(),
 )
 --permitido que uma conta tenha apenas um principal
-CREATE UNIQUE INDEX ind_tbUserAccount ON tbUserAccount(accountId, isUserMain) WHERE isUserMain = 1
+CREATE UNIQUE INDEX ind_tbUserAccount ON tbUserAccount(accountId) WHERE isUserMain = 1
 go
 
 Create Table tbLaunch(

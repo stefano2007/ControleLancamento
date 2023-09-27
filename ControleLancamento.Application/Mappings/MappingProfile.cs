@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ControleLancamento.Application.DTOs;
+using ControleLancamento.Application.UseCases.AccountTypes.Commands;
 using ControleLancamento.Application.UseCases.Categories.Commands;
 using ControleLancamento.Application.UseCases.CategoryTypes.Commands;
 using ControleLancamento.Domain.Entities;
@@ -19,5 +20,10 @@ public class MappingProfile : Profile
         CreateMap<CategoryTypeDTO, CategoryTypeCommand>();
         CreateMap<CategoryTypeCreateDTO, CategoryTypeCreateCommand>();
         CreateMap<CategoryTypeUpdateDTO, CategoryTypeUpdateCommand>();
+
+        CreateMap<AccountType, AccountTypeDTO>().ReverseMap();
+        CreateMap<AccountTypeDTO, AccountTypeCommand>();
+        CreateMap<AccountTypeCreateDTO, AccountTypeCreateCommand>();
+        CreateMap<AccountTypeUpdateDTO, AccountTypeUpdateCommand>();
     }
 }

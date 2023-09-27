@@ -27,7 +27,7 @@ public sealed class Launch : Entity
         DomainExceptionValidation.When(price < 0, "Price inválido");
 
         DomainExceptionValidation.When(string.IsNullOrEmpty(observation) && observation.Length > 250,
-            "Invalid image name, too long, maximum 250 characters");
+            "Invalid image name, too large, maximum 250 characters");
 
         LaunchType = launchType;
         CategoryId = categoryId;

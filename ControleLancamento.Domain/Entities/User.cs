@@ -28,16 +28,28 @@ public sealed class User : Entity
     public void ValidateDomain(string name, string email, string password, string occupation, string cellPhone)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
-            "Campo name é requerido");
+            "Invalid name is requerid");
 
         DomainExceptionValidation.When(name.Length < 3,
-           "name inválido mínimo de 3 caracteres");
+           "Invalid name, too short, minimum 3 characters");
+
+        DomainExceptionValidation.When(name.Length > 100,
+           "Invalid name, too large, maximum 100 characters");
 
         DomainExceptionValidation.When(string.IsNullOrEmpty(email),
-            "Campo email é requerido");
+            "Invalid email is requerid");
 
         DomainExceptionValidation.When(email.Length < 3,
-           "email inválido mínimo de 3 caracteres");
+           "Invalid email, too short, minimum 3 characters");
+
+        DomainExceptionValidation.When(email.Length > 120,
+           "Invalid email, too large, maximum 120 characters");
+
+        DomainExceptionValidation.When(string.IsNullOrEmpty(Occupation) && Occupation.Length > 60,
+            "Invalid image name, too large, maximum 60 characters");
+
+        DomainExceptionValidation.When(string.IsNullOrEmpty(CellPhone) && CellPhone.Length > 11,
+            "Invalid image name, too large, maximum 11 characters");
 
         Name = name;
         Email = email;

@@ -30,7 +30,10 @@ public sealed class AccountType : Entity
             "Campo name é requerido");
 
         DomainExceptionValidation.When(name.Length < 3,
-           "name inválido mínimo de 3 caracteres");
+           "Invalid name, too short, minimum 3 characters");
+
+        DomainExceptionValidation.When(name.Length > 100,
+           "Invalid name, too short, maximum 100 characters");
 
         Name = name;
     }

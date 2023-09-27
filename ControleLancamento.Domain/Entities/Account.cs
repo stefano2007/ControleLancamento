@@ -28,13 +28,13 @@ public sealed class Account : Entity
     private void ValidateDomain(string name, int accountTypeId)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
-            "Campo name é requerido");
+            "Invalid name is requerid");
 
         DomainExceptionValidation.When(name.Length < 3,
-           "name inválido mínimo de 3 caracteres");
+           "Invalid name minimum de 3 caracters");
 
         DomainExceptionValidation.When(accountTypeId <= 0,
-            "Campo CategoryId é requerido");
+            "Invalid CategoryId is requerid");
 
         Name = name;
         AccountTypeId = accountTypeId;

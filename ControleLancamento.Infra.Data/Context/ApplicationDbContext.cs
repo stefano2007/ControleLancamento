@@ -14,6 +14,7 @@ namespace ControleLancamento.Infra.Data.Context
         public DbSet<AccountType> AccountTypes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Launch> Launchs { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

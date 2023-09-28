@@ -17,6 +17,10 @@ namespace ControleLancamento.Infra.Data.EntitiesConfiguration
                 .HasColumnName("nmAccount")
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.HasMany(c => c.Launchs)
+                .WithOne(c => c.Account)
+                .HasForeignKey(c => c.AccountId);
         }
     }
 }

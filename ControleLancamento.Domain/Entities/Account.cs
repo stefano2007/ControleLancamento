@@ -6,6 +6,9 @@ public sealed class Account : Entity
     public int AccountTypeId { get; private set; }
     public string Name { get; private set; }
     public AccountType AccountType { get; private set; }
+
+    private readonly List<Launch> _launchs;
+    public IReadOnlyCollection<Launch> Launchs => _launchs;
     public Account(int accountTypeId, string name)
     {
         ValidateDomain(accountTypeId, name);

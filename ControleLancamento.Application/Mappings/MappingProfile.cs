@@ -3,6 +3,7 @@ using ControleLancamento.Application.DTOs;
 using ControleLancamento.Application.UseCases.AccountTypes.Commands;
 using ControleLancamento.Application.UseCases.Categories.Commands;
 using ControleLancamento.Application.UseCases.CategoryTypes.Commands;
+using ControleLancamento.Application.UseCases.Launchs.Commands;
 using ControleLancamento.Application.UseCases.Users.Commands;
 using ControleLancamento.Domain.Entities;
 
@@ -14,7 +15,7 @@ public class MappingProfile : Profile
     {
         CreateMap<Category, CategoryDTO>().ReverseMap();
         CreateMap<CategoryDTO, CategoryCommand>();
-        CreateMap<CategoryCreateDTO, CategoryCreateCommand>();
+        CreateMap<CategoryCreateDTO, LaunchCreateCommand>();
         CreateMap<CategoryUpdateDTO, CategoryUpdateCommand>();
 
         CreateMap<CategoryType, CategoryTypeDTO>().ReverseMap();
@@ -36,5 +37,10 @@ public class MappingProfile : Profile
         CreateMap<UserDTO, UserCommand>();
         CreateMap<UserCreateDTO, UserCreateCommand>();
         CreateMap<UserUpdateDTO, UserUpdateCommand>();
+
+        CreateMap<Launch, LaunchDTO>().ReverseMap();
+        CreateMap<LaunchDTO, LaunchCommand>();
+        CreateMap<LaunchCreateDTO, LaunchCreateCommand>();
+        CreateMap<LaunchUpdateDTO, LaunchUpdateCommand>();
     }
 }

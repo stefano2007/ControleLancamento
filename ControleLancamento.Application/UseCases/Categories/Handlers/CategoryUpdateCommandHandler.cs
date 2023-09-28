@@ -25,7 +25,7 @@ namespace ControleLancamento.Application.UseCases.Categories.Handlers
             }
             else
             {
-                category.Update(request.Name, request.Color, request.Icon);
+                category.Update(request.CategoryTypeId, request.Name, request.Color, request.Icon);
 
                 return await _categoryRepository.UpdateAsync(category);
 

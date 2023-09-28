@@ -3,29 +3,28 @@
 namespace ControleLancamento.Domain.Entities;
 public sealed class Account : Entity
 {
-    public string Name { get; private set; }
     public int AccountTypeId { get; private set; }
-    public AccountType AccountType { get; set; }
-
-    public Account(string name, int categoryId)
+    public string Name { get; private set; }
+    public AccountType AccountType { get; private set; }
+    public Account(int accountTypeId, string name)
     {
-        ValidateDomain(name, categoryId);
+        ValidateDomain(accountTypeId, name);
     }
-    public Account(int id, string name, int accountTypeId)
+    public Account(int id, int accountTypeId, string name)
     {
         DomainExceptionValidation.When(id < 0, "Invalid Id value.");
         Id = id;
-        ValidateDomain(name, accountTypeId);
+        ValidateDomain(accountTypeId, name);
     }
-    public void Update(string name, int accountTypeId)
+    public void Update(int accountTypeId, string name)
     {
-        ValidateDomain(name, accountTypeId);
+        ValidateDomain(accountTypeId, name);
     }
     public void Delete()
     {
         SetInactive();
     }
-    private void ValidateDomain(string name, int accountTypeId)
+    private void ValidateDomain(int accountTypeId, string name)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
             "Invalid name is requerid");

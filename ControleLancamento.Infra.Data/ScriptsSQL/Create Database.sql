@@ -3,19 +3,20 @@ go
 Use dbControleLancamento;
 GO
 
-Create Table tbCategory(
+Create Table tbCategoryType(
   Id int not null identity(1, 1) primary key,
-  nmCategory   varchar(100) not null,
-  Color        varchar(7),
-  Icon         varchar(20),
+  nmCategoryType   varchar(100) not null,
   ckActive     bit not null default 1,
   dtCreate     Datetime  not null default getdate()
 )
 go
 
-Create Table tbCategoryType(
+Create Table tbCategory(
   Id int not null identity(1, 1) primary key,
-  nmCategoryType   varchar(100) not null,
+  categoryTypeId int not null FOREIGN KEY REFERENCES tbCategoryType(Id),
+  nmCategory   varchar(100) not null,
+  Color        varchar(7),
+  Icon         varchar(20),
   ckActive     bit not null default 1,
   dtCreate     Datetime  not null default getdate()
 )
@@ -59,13 +60,14 @@ Create Table tbUserAccount(
   dtCreate  Datetime  not null default getdate(),
 )
 --permitido que uma conta tenha apenas um principal
-CREATE UNIQUE INDEX ind_tbUserAccount ON tbUserAccount(accountId) WHERE isUserMain = 1
+CREATE UNIQUE INDEX ind_tbUserAccount ON tbUserAccount(accountId) WHERE isUserMain = 1 and ckActive = 1
 go
 
 Create Table tbLaunch(
   Id int not null identity(1, 1) primary key,
-  launchType int not null ,
   categoryId int not null FOREIGN KEY REFERENCES tbCategory(Id),
+  accountId int not null FOREIGN KEY REFERENCES tbAccount(Id),
+  launchType int not null ,
   price       money not null,
   Observation varchar(100),
   Tag         varchar(20),

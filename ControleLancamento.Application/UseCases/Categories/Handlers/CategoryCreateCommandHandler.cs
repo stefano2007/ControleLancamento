@@ -14,7 +14,7 @@ public class CategoryCreateCommandHandler : IRequestHandler<CategoryCreateComman
     public async Task<Category> Handle(CategoryCreateCommand request,
         CancellationToken cancellationToken)
     {
-        var category = new Category(request.Name, request.Color, request.Icon);
+        var category = new Category(request.CategoryTypeId, request.Name, request.Color, request.Icon);
 
         if (category == null)
         {

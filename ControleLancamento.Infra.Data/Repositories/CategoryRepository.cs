@@ -24,6 +24,7 @@ namespace ControleLancamento.Infra.Data.Repositories
         {
             return await _categoryContext
                     .Categories
+                    .Include(c => c.CategoryType)
                     .FirstOrDefaultAsync(c => c.Id == id && c.Active);
         }
 
@@ -31,6 +32,7 @@ namespace ControleLancamento.Infra.Data.Repositories
         {
             return await _categoryContext
                 .Categories
+                .Include(c => c.CategoryType)
                 .Where(c => c.Active)
                 .AsNoTracking()
                 .ToListAsync();

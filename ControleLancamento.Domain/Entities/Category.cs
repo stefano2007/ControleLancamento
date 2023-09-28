@@ -3,32 +3,36 @@
 namespace ControleLancamento.Domain.Entities;
 
 public sealed class Category : Entity
-{    
+{
+    public int CategoryTypeId { get; private set; }
+    public CategoryType CategoryType { get; private set; }
     public string Name { get; private set; }
     public string? Color { get; private set; }
     public string? Icon { get; private set; }
 
-    public Category(string name, string color, string icon)
+    public Category(int categoryTypeId, string name, string color, string icon)
     {
-        ValidateDomain(name, color, icon);
+        ValidateDomain(categoryTypeId, name, color, icon);
     }
-    public Category(int id, string name, string color, string icon)
+    public Category(int id, int categoryTypeId, string name, string color, string icon)
     {
         DomainExceptionValidation.When(id < 0, "Invalid Id value.");
         Id = id;
 
-        ValidateDomain(name, color, icon);
+        ValidateDomain(categoryTypeId, name, color, icon);
     }
-    public void Update(string name, string color, string icon)
+    public void Update(int categoryTypeId, string name, string color, string icon)
     {
-        ValidateDomain(name, color, icon);
+        ValidateDomain(categoryTypeId, name, color, icon);
     }
     public void Delete()
     {
         SetInactive();
     }
-    private void ValidateDomain(string name, string color, string icon)
+    private void ValidateDomain(int categoryTypeId, string name, string color, string icon)
     {
+        DomainExceptionValidation.When(categoryTypeId <= 0, "Invalid Id Category Type value.");
+
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
             "Invalid name is required");
 
@@ -44,6 +48,7 @@ public sealed class Category : Entity
         DomainExceptionValidation.When(!string.IsNullOrEmpty(icon) && icon.Length > 20,
            "Invalid icon, too large, maximum 20 characters");
 
+        CategoryTypeId = categoryTypeId;
         Name = name;
         Color = color;
         Icon = icon;

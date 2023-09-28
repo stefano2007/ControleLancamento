@@ -47,7 +47,7 @@ namespace ControleLancamento.Application.Services
         }
         public async Task<CategoryDTO> UpdateAsync(CategoryUpdateDTO categoryDto)
         {
-            var categoryUpdateCommand = _mapper.Map<AccountUpdateCommand>(categoryDto);
+            var categoryUpdateCommand = _mapper.Map<CategoryUpdateCommand>(categoryDto);
             var result = await _mediator.Send(categoryUpdateCommand);
 
             return _mapper.Map<CategoryDTO>(result);

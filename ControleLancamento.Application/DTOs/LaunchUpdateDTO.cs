@@ -20,7 +20,7 @@ namespace ControleLancamento.Application.DTOs
         public string Description { get; set; }
 
         [Required(ErrorMessage = "The DateLaunch is Required")]
-        public DateTime DateLaunch { get; set; }
+        public DateOnly DateLaunch { get; set; }
 
         [Required(ErrorMessage = "The Price is Required")]
         [Range(0, 9999999)]

@@ -11,21 +11,21 @@ public sealed class Launch : Entity
     public int AccountId { get; private set; }
     public Account Account { get; private set; }
     public string Description { get; private set; }
-    public DateTime DateLaunch { get; private set; }
+    public DateOnly DateLaunch { get; private set; }
     public decimal Price { get; private set; }
     public string Observation { get; private set; }
     public string Tag { get; private set; }
-    public Launch(LaunchType launchType, int categoryId, int accountId, string description, DateTime dateLaunch, decimal price, string observation, string tag)
+    public Launch(LaunchType launchType, int categoryId, int accountId, string description, DateOnly dateLaunch, decimal price, string observation, string tag)
     {
         ValidateDomain(launchType, categoryId, accountId, description, dateLaunch, price, observation, tag);
     }
-    public Launch(int id, LaunchType launchType, int categoryId, int accountId, string description, DateTime dateLaunch, decimal price, string observation, string tag)
+    public Launch(int id, LaunchType launchType, int categoryId, int accountId, string description, DateOnly dateLaunch, decimal price, string observation, string tag)
     {
         DomainExceptionValidation.When(id < 0, "Invalid Id value.");
         Id = id;
         ValidateDomain(launchType, categoryId, accountId, description, dateLaunch, price, observation, tag);
     }
-    public void Update(LaunchType launchType, int categoryId, int accountId, string description, DateTime dateLaunch, decimal price, string observation, string tag)
+    public void Update(LaunchType launchType, int categoryId, int accountId, string description, DateOnly dateLaunch, decimal price, string observation, string tag)
     {
         ValidateDomain(launchType, categoryId, accountId, description, dateLaunch, price, observation, tag);
     }
@@ -33,7 +33,7 @@ public sealed class Launch : Entity
     {
         SetInactive();
     }
-    public void ValidateDomain(LaunchType launchType, int categoryId, int accountId, string description, DateTime dateLaunch, decimal price, string observation, string tag)
+    public void ValidateDomain(LaunchType launchType, int categoryId, int accountId, string description, DateOnly dateLaunch, decimal price, string observation, string tag)
     {
         DomainExceptionValidation.When(categoryId <= 0, "Category Id invalid");
 
@@ -50,7 +50,7 @@ public sealed class Launch : Entity
 
         DomainExceptionValidation.When(price < 0, "Price invalid");
 
-        DomainExceptionValidation.When(dateLaunch == DateTime.MinValue, "Date Launch invalid");
+        DomainExceptionValidation.When(dateLaunch == DateOnly.MinValue, "Date Launch invalid");
 
         DomainExceptionValidation.When(!string.IsNullOrEmpty(observation) && observation.Length > 250,
             "Invalid observation, too large, maximum 250 characters");

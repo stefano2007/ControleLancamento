@@ -1,4 +1,5 @@
 ﻿using ControleLancamento.Domain.Entities;
+using ControleLancamento.Infra.Data.EntitiesConfiguration.Converters;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleLancamento.Infra.Data.Context
@@ -19,6 +20,16 @@ namespace ControleLancamento.Infra.Data.Context
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+        }
+        protected override void ConfigureConventions(ModelConfigurationBuilder builder)
+        {
+            base.ConfigureConventions(builder);
+            builder.Properties<DateOnly>()
+                .HaveConversion<DateOnlyConverter>()
+                .HaveColumnType("date");
+
+            builder.Properties<TimeOnly>()
+                .HaveConversion<TimeOnlyConverter>();
         }
     }
 }

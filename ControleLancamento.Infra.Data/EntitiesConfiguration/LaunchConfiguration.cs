@@ -29,7 +29,7 @@ namespace ControleLancamento.Infra.Data.EntitiesConfiguration
 
             builder.Property(p => p.DateLaunch)
                 .HasColumnName("dtLaunch")
-                .HasColumnType("Datetime")
+                .HasColumnType("Date")
                 .IsRequired();
 
             builder.Property(p => p.Price)

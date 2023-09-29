@@ -69,7 +69,7 @@ Create Table tbLaunch(
   accountId int not null FOREIGN KEY REFERENCES tbAccount(Id),
   launchType int not null,
   dsLaunch    varchar(100) not null,
-  dtLaunch  Datetime  not null,
+  dtLaunch  Date  not null,
   price       money not null,
   Observation varchar(250),
   Tag         varchar(20),

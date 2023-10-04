@@ -4,6 +4,7 @@ using ControleLancamento.Application.UseCases.AccountTypes.Commands;
 using ControleLancamento.Application.UseCases.Categories.Commands;
 using ControleLancamento.Application.UseCases.CategoryTypes.Commands;
 using ControleLancamento.Application.UseCases.Launchs.Commands;
+using ControleLancamento.Application.UseCases.UserAccounts.Commands;
 using ControleLancamento.Application.UseCases.Users.Commands;
 using ControleLancamento.Domain.Entities;
 
@@ -42,5 +43,10 @@ public class MappingProfile : Profile
         CreateMap<LaunchDTO, LaunchCommand>();
         CreateMap<LaunchCreateDTO, LaunchCreateCommand>();
         CreateMap<LaunchUpdateDTO, LaunchUpdateCommand>();
+
+        CreateMap<UserAccount, UserAccountDTO>().ReverseMap();
+        CreateMap<UserAccountDTO, UserAccountCommand>();
+        CreateMap<UserAccountCreateDTO, UserAccountCreateCommand>();
+        CreateMap<UserAccountUpdateDTO, UserAccountUpdateCommand>();
     }
 }

@@ -30,6 +30,7 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<ILaunchRepository, LaunchRepository>();
+        services.AddScoped<IUserAccountRepository, UserAccountRepository>();
 
         //Services
         services.AddScoped<ICategoryService, CategoryService>();
@@ -38,6 +39,7 @@ public static class DependencyInjection
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<ILaunchService, LaunchService>();
+        services.AddScoped<IUserAccountService, UserAccountService>();
 
 
         services.AddAutoMapper(typeof(MappingProfile));

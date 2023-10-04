@@ -6,7 +6,7 @@ public sealed class UserAccount : Entity
     public int AccountId { get; set; }
     public Account Account { get; set; }
     public int UserId { get; set; }
-    public User user { get; set; }
+    public User User { get; set; }
     public bool IsUserMain { get; set; }
 
     public UserAccount(int accountId, int userId, bool isUserMain)
